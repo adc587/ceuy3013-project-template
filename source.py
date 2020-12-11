@@ -44,13 +44,20 @@ class TestClass:
         if self.b != 0: # for confined aquifers, b != 0
             return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.h_2 - self.h_1))
         else: # b = 0 for unconfined aquifers
-            return self.Q * math.log(self.r_2 / self.r_1) / (2 * math.pi * (self.h_2 - self.h_1))
+            return self.Q * math.log(self.r_2 / self.r_1) / (math.pi * ((self.h_2**2) - (self.h_1**2)))
 
-aqua_1 = TestClass("confined", 180, 27,79,54.34,57.56,15)
+    def possible_sediments_deposits(self):
+        res = []
+        for key,v in self.data.items():
+            k = self.solve_for_k()
+            #print(k)
+            if v[0] < k < v[1]:
+                res.append(key)
+        return res
+
+aqua_1 = TestClass("unconfined", 0.1083333, 1100, 0.15, 29.6, 20.46)
 print(aqua_1)
 print(aqua_1.solve_for_k())
-
-
-
+print(aqua_1.possible_sediments_deposits())
 
 
