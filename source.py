@@ -14,7 +14,21 @@ class TestClass:
         self.h_1 = h_1
         self.h_2 = h_2
         self.b = b
-
+        self.data = {  # Range of Values of Hydraulic Conductiviy and Permeability
+            "Karl Limestone": [.1, .000001],
+            "Permeable Limestone": [10 ** (-2), 10 ** (-7)],
+            "Fractured Igneous and Metamorphic Rocks": [10 ** (-3), 10 ** (-8)],
+            "Limestone and Dolomite": [10 ** (-3), 10 ** (-10)],
+            "Sandstone": [10 ** (-6), 10 ** (-11)],
+            "Unfractured Metamorphic and Igneous Rocks": [10 ** (-8), 10 ** (-13)],
+            "Shale": [10 ** (-13), 10 ** (-10)],
+            "Unweathered Marine Clay": [10 ** (-11), 10 ** (-6)],
+            "Glacial Till": [10 ** (-10), 10 ** (-6)],
+            "Silt, Loess": [10 ** (-9), 10 ** (-5)],
+            "Silty Sand": [10 ** (-7), 10 ** (-4)],
+            "Clean Sand": [10 ** (-6), 10 ** (-2)],
+            "Gravel": [10 ** (-5), 10 ** (-1)]
+        }
 
     def __str__(self):
         res = "Q = " + str(self.Q) + ", r_1 = " + str(self.r_1) + ", r_2 = " + str(self.r_2) + ", h_1 = " + str(
@@ -35,6 +49,7 @@ class TestClass:
 aqua_1 = TestClass("confined", 180, 27,79,54.34,57.56,15)
 print(aqua_1)
 print(aqua_1.solve_for_k())
+
 
 
 
