@@ -5,7 +5,7 @@
 
 # Here is a test class, replace the code below with your own
 import math
-class TestClass:
+class Aquifer:
     def __init__(self, type, Q, r_1, r_2, h_1, h_2, b=0):
         self.type = type
         self.Q = Q
@@ -55,9 +55,7 @@ class TestClass:
                 res.append(key)
         return res
 
-aqua_1 = TestClass("unconfined", 0.1083333, 1100, 0.15, 29.6, 20.46)
+aqua_1 = Aquifer("unconfined", 0.1083333, 1100, 0.15, 29.6, 20.46)
 print(aqua_1)
 print(aqua_1.solve_for_k())
 print(aqua_1.possible_sediments_deposits())
-
-
