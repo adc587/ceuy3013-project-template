@@ -28,5 +28,6 @@ class TestClass:
         else: # b = 0 for unconfined aquifers
             return self.Q * math.log(self.r_2 / self.r_1) / (2 * math.pi * (self.h_2 - self.h_1))
 
-aqua_1 = TestClass("cofined", 180, 27,79,54.34,57.56, 15)
+aqua_1 = TestClass("uncofined", 180, 27,79,54.34,57.56)
 print(aqua_1.solve_for_k())
+
