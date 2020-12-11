@@ -4,6 +4,7 @@
 # created for the OOP assignment would go here.
 
 # Here is a test class, replace the code below with your own
+import math
 class TestClass:
     def __init__(self, type, Q, r_1, r_2, h_1, h_2, b=0):
         self.type = type
@@ -26,3 +27,6 @@ class TestClass:
             return self.Q * math.ln(self.r_2 / self.r_1)/(2 * math.pi * self.b(self.h_2 - self.h_1))
         else: # b = 0 for unconfined aquifers
             return self.Q * math.ln(self.r_2 / self.r_1) / (2 * math.pi * (self.h_2 - self.h_1))
+
+aqua_1 = TestClass("cofined", 180, 27,79,54.34,57.56, 15)
+print(aqua_1.solve_for_k())
