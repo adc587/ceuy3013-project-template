@@ -17,7 +17,11 @@ class TestClass:
 
 
     def __str__(self):
-        return 'number: {}'.format(self.number)
+        res = "Q = " + str(self.Q) + ", r_1 = " + str(self.r_1) + ", r_2 = " + str(self.r_2) + ", h_1 = " + str(
+            self.h_1) + ", h_2 = " + str(self.h_2)
+        res += ", b = " + str(self.b)
+        return res
+
 
     def solve_for_k(self):
         '''
@@ -28,6 +32,10 @@ class TestClass:
         else: # b = 0 for unconfined aquifers
             return self.Q * math.log(self.r_2 / self.r_1) / (2 * math.pi * (self.h_2 - self.h_1))
 
-aqua_1 = TestClass("uncofined", 180, 27,79,54.34,57.56)
+aqua_1 = TestClass("confined", 180, 27,79,54.34,57.56,15)
+print(aqua_1)
 print(aqua_1.solve_for_k())
+
+
+
 
