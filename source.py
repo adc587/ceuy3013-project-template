@@ -5,8 +5,15 @@
 
 # Here is a test class, replace the code below with your own
 class TestClass:
-    def __init__(self, number):
-        self.number = number
+    def __init__(self, type, Q, r_1, r_2, h_1, h_2, b=0):
+        self.type = type
+        self.Q = Q
+        self.r_1 = r_1
+        self.r_2 = r_2
+        self.h_1 = h_1
+        self.h_2 = h_2
+        self.b = b
+
 
     def __str__(self):
         return 'number: {}'.format(self.number)
