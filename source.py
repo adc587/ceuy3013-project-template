@@ -17,3 +17,12 @@ class TestClass:
 
     def __str__(self):
         return 'number: {}'.format(self.number)
+
+    def solve_for_k(self):
+        '''
+        Assume user always uses SI units. Returns K in (m^3)/s
+        '''
+        if self.b != 0: # for confined aquifers, b != 0
+            return self.Q * math.ln(self.r_2 / self.r_1)/(2 * math.pi * self.b(self.h_2 - self.h_1))
+        else: # b = 0 for unconfined aquifers
+            return self.Q * math.ln(self.r_2 / self.r_1) / (2 * math.pi * (self.h_2 - self.h_1))
