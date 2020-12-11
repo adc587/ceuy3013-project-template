@@ -55,7 +55,3 @@ class Aquifer:
                 res.append(key)
         return res
 
-aqua_1 = Aquifer("unconfined", 0.1083333, 1100, 0.15, 29.6, 20.46)
-print(aqua_1)
-print(aqua_1.solve_for_k())
-print(aqua_1.possible_sediments_deposits())

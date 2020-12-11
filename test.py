@@ -2,9 +2,12 @@
 # of importing a class from "source.py", instantiating a new object and printing
 # that object. Replace the code below with your own.
 
-from source import TestClass
+from source import Aquifer
 
-t = TestClass(5)
 
 if __name__ == '__main__':
-    print(t)
+
+    aqua_1 = Aquifer("unconfined", 0.1083333, 1100, 0.15, 29.6, 20.46)
+    print(aqua_1)
+    print(aqua_1.solve_for_k())
+    print(aqua_1.possible_sediments_deposits())
