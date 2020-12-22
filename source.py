@@ -22,7 +22,7 @@ class Aquifer:
         - Unconfined -
             r_1 -> radius of influence
             r_2 -> radius of pumping well
-            d_1 -> depth after pumping
+            d_1 -> drawdown at well
             d_2 -> original depth of water
         '''
 
@@ -34,6 +34,8 @@ class Aquifer:
         self.d_2 = d_2
         self.b = b
         self.d = d
+        self.h_1 = 0
+        self.h_2 = 0
         self.data = {  # Range of Values of Hydraulic Conductiviy and Permeability
             "Karl Limestone": [.1, .000001],
             "Permeable Limestone": [10 ** (-2), 10 ** (-7)],
@@ -49,11 +51,12 @@ class Aquifer:
             "Clean Sand": [10 ** (-6), 10 ** (-2)],
             "Gravel": [10 ** (-5), 10 ** (-1)]
         }
+        self.thickness()
 
     def __str__(self):
         res = "Q = " + str(self.Q) + ", r_1 = " + str(self.r_1) + ", r_2 = " + str(self.r_2) + ", d_1 = " + str(
             self.d_1) + ", d_2 = " + str(self.d_2)
-        res += ", b = " + str(self.b)
+        res += ", b = " + str(self.b) + ', d = ' + str(self.d)
         return res
 
 
@@ -62,9 +65,9 @@ class Aquifer:
         Assume user always uses SI units. Returns K in (m^3)/s
         '''
         if self.b != 0: # for confined aquifers, b != 0
-            return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.d_2 - self.d_1))
+            return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.h_2 - self.h_1))
         else: # b = 0 for unconfined aquifers
-            return self.Q * math.log(self.r_2 / self.r_1) / (math.pi * ((self.d_2**2) - (self.d_1**2)))
+            return self.Q * math.log(self.r_2 / self.r_1) / (math.pi * ((self.h_2**2) - (self.h_1**2)))
 
     def possible_sediments_deposits(self):
         '''
@@ -82,7 +85,11 @@ class Aquifer:
         '''
         returns thickness of aquifer before and after
         '''
-        if self.b: # for confined well
-            return self.b
-        else: # for unconfined well
-            return self.d - self.d_2 # for uncofined well
+        if self.b: # for confined aquifer
+            self.h_1 = self.d_1
+            self.h_2 = self.d_2
+        else: # for unconfined aquifer
+            self.h_1 = self.d - self.d_2
+            self.h_2 = self.h_1 - self.d_2
+
+
