@@ -6,51 +6,32 @@
 # Here is a test class, replace the code below with your own
 import math
 class Aquifer:
-    def __init__(self, type, Q, r_1, r_2, h_1, h_2, b=0):
+    def __init__(self, type, Q, r_1, r_2, d_1, d_2, b=0, d=0):
         '''
-              type -> type of aquifer
-              Q -> rate at which water is pumped out of well
+         type -> type of aquifer
+         Q -> rate at which water is pumped out of well
+         d -> distance from ground level to the bottom of aquifer
 
-              - Cofined -
-                 r_1 -> distance between first well to pumping well
-                 r_2 -> distance between second well to pumping well
-                 h_1 -> height of closer observational well water table
-                 h_2 -> height of farther observational well water table
-                 b -> thickness of the aquifer
+         - Cofined -
+            r_1 -> distance between first well to pumping well
+            r_2 -> distance between second well to pumping well
+            d_1 -> height of closer observational well water table
+            d_2 -> height of farther observational well water table
+            b -> thickness of the aquifer
 
-             - Unconfined -
-                 r_1 -> radius of influence
-                 r_2 -> radius of pumping well
-                 h_1 -> original thickness of aquifer
-                 h_2 -> height of water table at the pumping well
-             '''
+        - Unconfined -
+            r_1 -> radius of influence
+            r_2 -> radius of pumping well
+            d_1 -> depth after pumping
+            d_2 -> original depth of water
+        '''
 
-    ---------------
-    '''
-      type -> type of aquifer
-      Q -> rate at which water is pumped out of well
-      d -> distance from ground level to the bottom of aquifer
-
-      - Cofined -
-         r_1 -> distance between first well to pumping well
-         r_2 -> distance between second well to pumping well
-         h_1 -> height of closer observational well water table
-         h_2 -> height of farther observational well water table
-         b -> thickness of the aquifer
-
-     - Unconfined -
-         r_1 -> radius of influence
-         r_2 -> radius of pumping well
-         h_1 -> depth after pumping
-         h_2 -> original depth of water
-     '''
-
-    self.type = type
+        self.type = type
         self.Q = Q
         self.r_1 = r_1
         self.r_2 = r_2
-        self.h_1 = h_1
-        self.h_2 = h_2
+        self.d_1 = d_1
+        self.d_2 = d_2
         self.b = b
         self.d = d
         self.data = {  # Range of Values of Hydraulic Conductiviy and Permeability
@@ -70,8 +51,8 @@ class Aquifer:
         }
 
     def __str__(self):
-        res = "Q = " + str(self.Q) + ", r_1 = " + str(self.r_1) + ", r_2 = " + str(self.r_2) + ", h_1 = " + str(
-            self.h_1) + ", h_2 = " + str(self.h_2)
+        res = "Q = " + str(self.Q) + ", r_1 = " + str(self.r_1) + ", r_2 = " + str(self.r_2) + ", d_1 = " + str(
+            self.d_1) + ", d_2 = " + str(self.d_2)
         res += ", b = " + str(self.b)
         return res
 
@@ -81,11 +62,14 @@ class Aquifer:
         Assume user always uses SI units. Returns K in (m^3)/s
         '''
         if self.b != 0: # for confined aquifers, b != 0
-            return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.h_2 - self.h_1))
+            return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.d_2 - self.d_1))
         else: # b = 0 for unconfined aquifers
-            return self.Q * math.log(self.r_2 / self.r_1) / (math.pi * ((self.h_2**2) - (self.h_1**2)))
+            return self.Q * math.log(self.r_2 / self.r_1) / (math.pi * ((self.d_2**2) - (self.d_1**2)))
 
     def possible_sediments_deposits(self):
+        '''
+        picks appropriate sediments and deposits for each aquifer
+        '''
         res = []
         for key,v in self.data.items():
             k = self.solve_for_k()
@@ -94,9 +78,11 @@ class Aquifer:
                 res.append(key)
         return res
 
-
     def thickness(self):
-        if self.b:  # for confined well
+        '''
+        returns thickness of aquifer before and after
+        '''
+        if self.b: # for confined well
             return self.b
-        else:
-            return self.d - self.h_2  # for uncofined well
+        else: # for unconfined well
+            return self.d - self.d_2 # for uncofined well
