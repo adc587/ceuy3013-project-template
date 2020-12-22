@@ -7,13 +7,52 @@
 import math
 class Aquifer:
     def __init__(self, type, Q, r_1, r_2, h_1, h_2, b=0):
-        self.type = type
+        '''
+              type -> type of aquifer
+              Q -> rate at which water is pumped out of well
+
+              - Cofined -
+                 r_1 -> distance between first well to pumping well
+                 r_2 -> distance between second well to pumping well
+                 h_1 -> height of closer observational well water table
+                 h_2 -> height of farther observational well water table
+                 b -> thickness of the aquifer
+
+             - Unconfined -
+                 r_1 -> radius of influence
+                 r_2 -> radius of pumping well
+                 h_1 -> original thickness of aquifer
+                 h_2 -> height of water table at the pumping well
+             '''
+
+    ---------------
+    '''
+      type -> type of aquifer
+      Q -> rate at which water is pumped out of well
+      d -> distance from ground level to the bottom of aquifer
+
+      - Cofined -
+         r_1 -> distance between first well to pumping well
+         r_2 -> distance between second well to pumping well
+         h_1 -> height of closer observational well water table
+         h_2 -> height of farther observational well water table
+         b -> thickness of the aquifer
+
+     - Unconfined -
+         r_1 -> radius of influence
+         r_2 -> radius of pumping well
+         h_1 -> depth after pumping
+         h_2 -> original depth of water
+     '''
+
+    self.type = type
         self.Q = Q
         self.r_1 = r_1
         self.r_2 = r_2
         self.h_1 = h_1
         self.h_2 = h_2
         self.b = b
+        self.d = d
         self.data = {  # Range of Values of Hydraulic Conductiviy and Permeability
             "Karl Limestone": [.1, .000001],
             "Permeable Limestone": [10 ** (-2), 10 ** (-7)],
@@ -55,3 +94,9 @@ class Aquifer:
                 res.append(key)
         return res
 
+
+    def thickness(self):
+        if self.b:  # for confined well
+            return self.b
+        else:
+            return self.d - self.h_2  # for uncofined well
