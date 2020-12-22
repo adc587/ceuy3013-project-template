@@ -2,7 +2,7 @@
 
 *This file presents a description of the final project.*
 
-The aquifer class allows an aquifer obejct to be created. With all the different
+The aquifer class allows an aquifer obejct to be created with all the different
 variables for an aquifer. The comments in the code explains what each variable means,
 and how it should be input in the test. The test section of the code also has detailed instructions.
 The following is the basic instructions as to give an idea of what this code can do.
