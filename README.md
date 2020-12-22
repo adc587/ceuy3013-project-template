@@ -62,7 +62,7 @@ the calculations work. The homework examples are attached in the repository and 
 	- Questions:
 	Hw5 - ground water
 
-	- Solutions
+	- Solutions:
 	Hw5 solutions
 
 
