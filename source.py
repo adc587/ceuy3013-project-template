@@ -94,7 +94,7 @@ class Aquifer:
 
     def drawdown(self, wl):
         '''
-        wl* -> water levels
+        wl* -> water level
         calculates drawdown, s_1 and s_2, of observational wells, in m.
         '''
         if self.type == 'confined':

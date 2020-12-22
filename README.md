@@ -86,3 +86,23 @@ for tips on how to better present your work.
 Your submission will go undergo several plagiarism checks. There is risk of a
 failing score, without warning, if it becomes evident that your code comes from
 other public projects.
+
+#documentation
+The aquifer class allow an aquifer obejct to be created. With all the different
+variables for an aquifer. The comment in the code explains what each variable means.
+
+The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
+Given all the variables are valid.
+
+The function **possible_sediments_deposits** will pick all possible sediments and 
+deposits for each aquifer, be it confined or unconfined. the variable **self.data**
+stores the k values for each possible seiment and deposit.
+
+The function **thickness** returns the thickness of the aquifer before and
+after pumping.
+
+The funtion **drawdown** returns the drawdowns for a confined aquifer given a
+water level.
+
+The test file has examples using the numbers from the homework to make sure all
+the calculations work.
