@@ -10,14 +10,14 @@ feel free to input the values that you wish and the code will automatically retu
 Program will return:
 
 for both unconfined and confined
-k (m/s) / (ft/s)
+k in (m/s) / (ft/s)
 Possible sediments and deposits
 
 for unconfined
-thickness before and after pumping (m) / (ft)
+thickness before and after pumping in (m) / (ft)
 
 for confined
-drawdown (m) / (ft)
+drawdown in (m) / (ft)
 
 The following data has to be input in SI units (m^3/s and m) or US units (ft^3/s, and ft):
 

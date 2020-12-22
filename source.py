@@ -22,7 +22,7 @@ class Aquifer:
         - Unconfined -
             r_1 -> radius of influence
             r_2 -> radius of pumping well
-            d_1 -> drawdown at well
+            d_1 -> drawdown at pumping well
             d_2 -> original depth of water
         '''
 
