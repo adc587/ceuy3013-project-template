@@ -37,12 +37,12 @@ class Aquifer:
         self.h_1 = 0
         self.h_2 = 0
         self.data = {  # Range of Values of Hydraulic Conductiviy and Permeability
-            "Karl Limestone": [.1, .000001],
-            "Permeable Limestone": [10 ** (-2), 10 ** (-7)],
-            "Fractured Igneous and Metamorphic Rocks": [10 ** (-3), 10 ** (-8)],
-            "Limestone and Dolomite": [10 ** (-3), 10 ** (-10)],
-            "Sandstone": [10 ** (-6), 10 ** (-11)],
-            "Unfractured Metamorphic and Igneous Rocks": [10 ** (-8), 10 ** (-13)],
+            "Karl Limestone": [.000001, .1],
+            "Permeable Limestone": [10 ** (-7),10 ** (-2)],
+            "Fractured Igneous and Metamorphic Rocks": [ 10 ** (-8),1.5*10 ** (-3)],
+            "Limestone and Dolomite": [10 ** (-10),10 ** (-3)],
+            "Sandstone": [10 ** (-11),10 ** (-6)],
+            "Unfractured Metamorphic and Igneous Rocks": [10 ** (-13), 10 ** (-8)],
             "Shale": [10 ** (-13), 10 ** (-10)],
             "Unweathered Marine Clay": [10 ** (-11), 10 ** (-6)],
             "Glacial Till": [10 ** (-10), 10 ** (-6)],
