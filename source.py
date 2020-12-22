@@ -62,7 +62,7 @@ class Aquifer:
 
     def solve_for_k(self):
         '''
-        Assume user always uses SI units. Returns K in (m^3)/s
+        Assume user always uses proper units. Returns K in (m/s) / (ft/s)
         '''
         if self.b != 0: # for confined aquifers, b != 0
             return self.Q * math.log(self.r_2 / self.r_1)/(2 * math.pi * self.b*(self.h_2 - self.h_1))
@@ -83,19 +83,19 @@ class Aquifer:
 
     def thickness(self):
         '''
-        returns thickness of aquifer before pumping, h_1, and after pumping, h_2
+        returns thickness of aquifer before pumping, h_1, and after pumping, h_2, in m / ft
         '''
         if self.b: # for confined aquifer
             self.h_1 = self.d_1
             self.h_2 = self.d_2
         else: # for unconfined aquifer
             self.h_1 = self.d - self.d_2
-            self.h_2 = self.h_1 - self.d_2
+            self.h_2 = self.h_1 - self.d_1
 
     def drawdown(self, wl):
         '''
         wl* -> water level
-        calculates drawdown, s_1 and s_2, of observational wells, in m.
+        calculates drawdown, s_1 and s_2, of observational wells, in m / ft.
         '''
         if self.type == 'confined':
             wl1 = self.d - self.d_1
