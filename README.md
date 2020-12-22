@@ -11,6 +11,28 @@ The aquifer class allows an aquifer obejct to be created. With all the different
 variables for an aquifer. The comment in the code explains what each variable means,
 and how it should be input in the test. The test section of the code has detailed instructions.
 
+Code needs inputs:
+
+The following data has to be input in SI units (m^3/s and m) or US units (ft^3/s, and ft):
+
+        type -> type of aquifer
+        Q -> rate at which water is pumped out of well (m^3/s) / (ft^3/s)
+        d -> distance from ground level to the bottom of aquifer (m) / (ft)
+
+        - Cofined -
+           r_1 -> distance between first well to pumping well (m) / (ft)
+           r_2 -> distance between second well to pumping well (m) / (ft)
+           d_1 -> height of closer observational well water table (m) / (ft)
+           d_2 -> height of further observational well water table (m) / (ft)
+           b -> thickness of the aquifer (m) / (ft)
+
+       - Unconfined -
+           r_1 -> radius of influence (m) / (ft)
+           r_2 -> radius of pumping well (m) / (ft)
+           d_1 -> drawdown at pumping well (m) / (ft)
+           d_2 -> original depth of water (m) / (ft)
+
+
 Code will return:
 
 for both unconfined and confined
