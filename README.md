@@ -1,11 +1,6 @@
 # CE-UY 3013 Project Confined and Unconfined Aquifers by Arturo Carvajales
 
-*This file presents a description of the final project. For your submission,*
-*this file must serve as the documentation of your project, how your program*
-*should be used along with examples.*
-
-
-#documentation
+*This file presents a description of the final project.*
 
 The aquifer class allows an aquifer obejct to be created. With all the different
 variables for an aquifer. The comment in the code explains what each variable means,
