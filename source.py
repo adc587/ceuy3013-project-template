@@ -83,7 +83,7 @@ class Aquifer:
 
     def thickness(self):
         '''
-        returns thickness of aquifer before and after
+        returns thickness of aquifer before pumping, h_1, and after pumping, h_2
         '''
         if self.b: # for confined aquifer
             self.h_1 = self.d_1
@@ -91,5 +91,17 @@ class Aquifer:
         else: # for unconfined aquifer
             self.h_1 = self.d - self.d_2
             self.h_2 = self.h_1 - self.d_2
+
+    def drawdown(self, wl):
+        '''
+        wl* -> water levels
+        calculates drawdown, s_1 and s_2, of observational wells, in m.
+        '''
+        if self.type == 'confined':
+            wl1 = self.d - self.d_1
+            wl2 = self.d - self.d_2
+            s_1 = wl1 - wl
+            s_2 = wl2 - wl
+            return s_1, s_2
 
 
