@@ -49,17 +49,17 @@ Code will return:
 This code is able to do this because of a series of functions that were designed,
 these are:
 
-	-The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
+	- The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
 	Given all the variables are valid.
 
-	-The function **possible_sediments_deposits** will pick all possible sediments and 
+	- The function **possible_sediments_deposits** will pick all possible sediments and 
 	deposits for each aquifer, be it confined or unconfined. the variable **self.data**
 	stores the k values for each possible sediment and deposit.
 
-	-The function **thickness** returns the thickness of the aquifer before and
+	- The function **thickness** returns the thickness of the aquifer before and
 	after pumping.
 
-	-The funtion **drawdown** returns the drawdowns for a confined aquifer given a
+	- The funtion **drawdown** returns the drawdowns for a confined aquifer given a
 	water level.
 
 The test file has examples using the numbers from the homework to make sure all
