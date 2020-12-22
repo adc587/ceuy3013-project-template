@@ -1,4 +1,4 @@
-# CE-UY 3013 Project Template
+# CE-UY 3013 Project Confined and Unconfined Aquifers by Arturo Carvajales
 
 *This file presents a description of the final project. For your submission,*
 *this file must serve as the documentation of your project, how your program*
