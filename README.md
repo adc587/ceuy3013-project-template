@@ -39,37 +39,37 @@ Code will return:
 	   k -> (m/s) / (ft/s)
 	   Possible sediments and deposits
 
-	-for confined-
+	- for confined -
 	   drawdown (m) / (ft)
 
-	- for unconfined-
+	- for unconfined -
 	  thickness before and after pumping -> (m) / (ft)
 
 
 This code is able to do this because of a series of functions that were designed,
 these are:
 
-The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
-Given all the variables are valid.
+	-The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
+	Given all the variables are valid.
 
-The function **possible_sediments_deposits** will pick all possible sediments and 
-deposits for each aquifer, be it confined or unconfined. the variable **self.data**
-stores the k values for each possible sediment and deposit.
+	-The function **possible_sediments_deposits** will pick all possible sediments and 
+	deposits for each aquifer, be it confined or unconfined. the variable **self.data**
+	stores the k values for each possible sediment and deposit.
 
-The function **thickness** returns the thickness of the aquifer before and
-after pumping.
+	-The function **thickness** returns the thickness of the aquifer before and
+	after pumping.
 
-The funtion **drawdown** returns the drawdowns for a confined aquifer given a
-water level.
+	-The funtion **drawdown** returns the drawdowns for a confined aquifer given a
+	water level.
 
 The test file has examples using the numbers from the homework to make sure all
 the calculations work. The homework examples are attached in the repository and can be found as:
 
-Questions:
-Hw5 - ground water
+	- Questions:
+	Hw5 - ground water
 
-Solutions
-Hw5 solutions
+	- Solutions
+	Hw5 solutions
 
 
 
