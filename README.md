@@ -35,18 +35,19 @@ The following data has to be input in SI units (m^3/s and m) or US units (ft^3/s
 
 Code will return:
 
-for both unconfined and confined
-k (m/s) / (ft/s)
-Possible sediments and deposits
+	- for both unconfined and confined -
+	   k -> (m/s) / (ft/s)
+	   Possible sediments and deposits
 
-for unconfined
-thickness before and after pumping (m) / (ft)
+	-for confined-
+	   drawdown (m) / (ft)
 
-for confined
-drawdown (m) / (ft)
+	- for unconfined-
+	  thickness before and after pumping -> (m) / (ft)
 
-This code is able to do this because of a series of functions that were designed.
-These are:
+
+This code is able to do this because of a series of functions that were designed,
+these are:
 
 The function **solve_for_k** will solve for the hydraulic conductivity of the aquifer.
 Given all the variables are valid.
