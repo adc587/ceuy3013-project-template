@@ -40,10 +40,10 @@ Code will return:
 	   Possible sediments and deposits
 
 	- for confined -
-	   drawdown (m) / (ft)
+	   drawdown at each observational well (m) / (ft)
 
 	- for unconfined -
-	  thickness before and after pumping -> (m) / (ft)
+	   thickness before and after pumping -> (m) / (ft)
 
 
 This code is able to do this because of a series of functions that were designed,
